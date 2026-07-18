@@ -1,0 +1,5 @@
+# Normalize line endings. Shell scripts must stay LF or they break on the box.
+* text=auto eol=lf
+
+# Binary assets — never touch
+*.png binary
