@@ -1,0 +1,27 @@
+# Secrets — never commit these
+.env
+*.env
+!.env.example
+*.key
+*.pem
+id_ed25519*
+id_rsa*
+*_the_house
+*.local
+
+# Tailscale / machine state
+tailscaled.state
+/var/lib/tailscale/
+
+# Vault contents (your memory is yours; keep the template, ignore real notes)
+memory/**
+!memory/README.md
+!memory/decisions/
+!memory/decisions/0000-decision-template.md
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.obsidian/
+node_modules/

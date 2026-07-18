@@ -1,0 +1,28 @@
+{
+  "_comment": "Example MCP tool config for the agent. Three tools, not thirty. Copy the entries you want into your agent's MCP config (Claude Code: `claude mcp add ...` or the .mcp.json / ~/.claude.json file). Replace <VAULT_PATH> with your Step 4 vault, and set GITHUB_PERSONAL_ACCESS_TOKEN in your environment, never here. Docs: https://code.claude.com/docs/en/mcp-quickstart",
+
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "<VAULT_PATH>"
+      ]
+    },
+
+    "github": {
+      "command": "docker",
+      "args": [
+        "run", "-i", "--rm",
+        "-e", "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "ghcr.io/github/github-mcp-server"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+      }
+    },
+
+    "_third_slot": "Add the ONE more tool you'll actually use this month here, then stop. Reference servers: https://github.com/modelcontextprotocol/servers"
+  }
+}

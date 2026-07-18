@@ -1,0 +1,46 @@
+# OPTIONAL observability stack — read the README before enabling.
+# Bound to the tailnet like everything else. Never 0.0.0.0.
+#   cd optional/observability && docker compose --env-file ../../.env up -d
+# Requires TAILSCALE_IP and GRAFANA_ADMIN_PASSWORD in ../../.env
+
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    restart: unless-stopped
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prom-data:/prometheus
+    ports:
+      - "${TAILSCALE_IP}:9090:9090"
+
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana
+    restart: unless-stopped
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD}
+      - GF_SERVER_HTTP_ADDR=0.0.0.0
+    ports:
+      - "${TAILSCALE_IP}:3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+    depends_on:
+      - prometheus
+
+volumes:
+  prom-data:
+  grafana-data:
+
+# Minimal prometheus.yml to sit next to this file (scrapes the gateway):
+#
+#   global:
+#     scrape_interval: 15s
+#   scrape_configs:
+#     - job_name: litellm
+#       static_configs:
+#         - targets: ["litellm:4000"]
+#
+# For the gateway to expose /metrics, add to gateway/litellm.config.yaml:
+#   litellm_settings:
+#     callbacks: ["prometheus"]

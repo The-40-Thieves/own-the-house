@@ -1,0 +1,28 @@
+# LiteLLM gateway, bound to the Tailscale mesh — never 0.0.0.0.
+# Docker bypasses ufw, so the ${TAILSCALE_IP} bind is what keeps this private.
+# Set TAILSCALE_IP, LITELLM_MASTER_KEY, and your provider keys in ../.env
+# Run:  docker compose --env-file ../.env up -d
+# Docs: https://docs.litellm.ai/docs/proxy/docker_quick_start
+
+services:
+  litellm:
+    image: ghcr.io/berriai/litellm:main-latest
+    container_name: litellm
+    restart: unless-stopped
+    # Bind ONLY to the tailnet IP. If TAILSCALE_IP is unset this will fail
+    # loudly rather than expose the port to the world — that's intentional.
+    ports:
+      - "${TAILSCALE_IP}:4000:4000"
+    volumes:
+      - ./litellm.config.yaml:/app/config.yaml:ro
+    environment:
+      - LITELLM_MASTER_KEY=${LITELLM_MASTER_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    command: ["--config", "/app/config.yaml"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4000/health/liveliness"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
