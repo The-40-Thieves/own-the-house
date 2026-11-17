@@ -1,4 +1,8 @@
-# Step 3 — Add one agent and a few tools
+---
+title: "Step 3 — Add one agent and a few tools"
+sidebarTitle: "3. Agent and tools"
+description: "Run one agent on the box that reaches models through the gateway and calls a small set of MCP tools."
+---
 
 **Goal:** an agent running on the box that talks to the models *through your gateway*, and can call a small set of tools over MCP. Three tools you use, not thirty you configured and forgot.
 

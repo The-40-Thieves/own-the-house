@@ -1,4 +1,8 @@
-# Grow into it — what to add later, and in what order
+---
+title: "Grow into it — what to add later, and in what order"
+sidebarTitle: "Grow into it"
+description: "What to add after the weekend build, and the order to add it in, once a real need appears."
+---
 
 The weekend build (Steps 0–4) is the whole foundation. Everything below is optional and should be added **only when a real need pulls it in**, in roughly this order. Adding these early is the over-engineering this design exists to avoid.
 

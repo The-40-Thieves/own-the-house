@@ -1,4 +1,8 @@
-# Official documentation — every product this build uses
+---
+title: "Official documentation — every product this build uses"
+sidebarTitle: "Official documentation"
+description: "Links to the official documentation of every product this build uses."
+---
 
 One place for every official link. If a link 404s, the product moved its docs; search the product name plus "docs" and update this file (it's yours now).
 
