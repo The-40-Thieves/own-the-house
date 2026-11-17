@@ -1,4 +1,8 @@
-# Step 2 — Put a gateway in front of the models
+---
+title: "Step 2 — Put a gateway in front of the models"
+sidebarTitle: "2. Gateway"
+description: "Run LiteLLM as the one endpoint every tool calls, so changing model provider is a line of config."
+---
 
 **Goal:** one endpoint on your tailnet that speaks the OpenAI API and fans out to every model provider behind it. After this, choosing a model is a line of config, not a code change.
 

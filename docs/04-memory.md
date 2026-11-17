@@ -1,4 +1,8 @@
-# Step 4 — Give it memory
+---
+title: "Step 4 — Give it memory"
+sidebarTitle: "4. Memory"
+description: "Give the agent a notes vault it reads and writes, so the system keeps what it learns between sessions."
+---
 
 **Goal:** a place on the box the agent reads from and writes to, so the system learns across sessions even though the model remembers nothing. This is the seed of the substrate — the part that still matters three model generations from now.
 

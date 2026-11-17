@@ -1,4 +1,8 @@
-# Step 1 — Lock the edge
+---
+title: "Step 1 — Lock the edge"
+sidebarTitle: "1. Lock the edge"
+description: "Put the box on a private Tailscale mesh and close every public port except SSH, before any service is installed."
+---
 
 **Goal:** the box is reachable from your own devices over a private mesh, and **nothing** is exposed to the open internet except the one SSH door. Do this *before* installing any services.
 

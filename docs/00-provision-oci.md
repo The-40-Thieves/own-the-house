@@ -1,4 +1,8 @@
-# Step 0 — Provision the box (Oracle Cloud Always Free ARM)
+---
+title: "Step 0 — Provision the box (Oracle Cloud Always Free ARM)"
+sidebarTitle: "0. Provision the box"
+description: "Create a free Ubuntu 24.04 ARM virtual machine on Oracle Cloud, or a low-cost one on Hetzner, that you can SSH into."
+---
 
 **Goal:** a running Ubuntu 24.04 ARM virtual machine you can SSH into.
 **Primary path:** Oracle Cloud Infrastructure (OCI) Always Free, Ampere A1 (ARM). **Free, permanently.**

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "own-the-house",
+  "description": "Stand up your own single-host AI substrate in a weekend.",
+  "colors": {
+    "primary": "#7C3AED",
+    "light": "#A78BFA",
+    "dark": "#6D28D9"
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Overview",
+        "pages": ["index"]
+      },
+      {
+        "group": "The weekend build",
+        "pages": [
+          "00-provision-oci",
+          "01-lock-the-edge",
+          "02-gateway",
+          "03-agent-and-tools",
+          "04-memory"
+        ]
+      },
+      {
+        "group": "After the build",
+        "pages": ["grow-into", "links"]
+      }
+    ]
+  }
+}
